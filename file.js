@@ -25,7 +25,7 @@ function check() {
     let name = document.querySelector('.name').value;
     let password = document.querySelector('.password').value;
 
-    if (name === 'Merlin' && password === 'jonbellionobbsession') {
+    if (name === 'Merlin' && password === 'penguin') {
         document.querySelector('.whole-container').style.display = "none";
         document.querySelector('.the-image').style.display = "none";
         document.querySelector('.inside-container').style.display = "block";
