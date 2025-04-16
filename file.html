@@ -3,201 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Merlin </title>
+  <title>Official Friendship License for Merlin</title>
   <style>
-    /* === CSS === */
     body {
       margin: 0;
-      padding: 0;
-      height: 100vh;
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #5a3d7a;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .license {
+      width: 400px;
+      height: 600px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      border: 5px double #ff69b4;
       text-align: center;
     }
 
-    @keyframes gradientBG {
+    .license:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, #ff69b4, #8a2be2, #ff69b4);
+      z-index: -1;
+      background-size: 200% 200%;
+      animation: gradientBorder 3s ease infinite;
+      border-radius: 20px;
+    }
+
+    @keyframes gradientBorder {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .container {
-      z-index: 10;
-      max-width: 600px;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #ff69b4;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    h1 {
-      font-size: 3em;
+    .subheader {
+      font-size: 14px;
+      color: #666;
       margin-bottom: 20px;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    #typed-text {
-      font-size: 1.5em;
-      min-height: 200px;
+    .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #ff69b4;
+      margin: 0 auto 20px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .details {
+      text-align: left;
       margin: 20px 0;
-      line-height: 1.6;
     }
 
-    .heart {
-      font-size: 3em;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: inline-block;
-      animation: pulse 2s infinite;
+    .detail-row {
+      margin-bottom: 10px;
+      display: flex;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+    .detail-label {
+      font-weight: bold;
+      width: 120px;
+      color: #ff69b4;
     }
 
-    .heart:hover {
-      transform: scale(1.2);
-      animation: none;
+    .detail-value {
+      flex: 1;
     }
 
-    .heart:active {
-      transform: scale(1.5);
-    }
-
-    /* Floating magic sparkles */
-    .particles {
+    .stamp {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/></svg>') no-repeat;
-      background-size: contain;
-      pointer-events: none;
-    }
-
-    .click-instruction {
-      margin-top: 10px;
-      font-style: italic;
+      bottom: 30px;
+      right: 30px;
+      width: 80px;
       opacity: 0.8;
+      transform: rotate(15deg);
+    }
+
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 120px;
+      font-weight: bold;
+      color: rgba(255, 105, 180, 0.1);
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .signature {
+      margin-top: 30px;
+      border-top: 1px dashed #ff69b4;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .signature-box {
+      width: 45%;
     }
   </style>
 </head>
 <body>
-  <!-- === HTML === -->
-  <div class="particles" id="particles"></div>
-  <div class="container">
-    <h1>For Merlin ✨</h1>
-    <div id="typed-text"></div>
-    <div class="heart" id="heart">🤍</div>
-    <p class="click-instruction">(Click Me)</p>
+  <div class="license">
+    <div class="watermark">MERLIN</div>
+    <div class="header">Official Friendship License</div>
+    <div class="subheader">Certificate of Unmatched Awesomeness</div>
+    
+    <!-- Replace with Merlin's image URL -->
+    <img id="friend-photo" class="photo" src="newMerlin.jpg" alt="Merlin">
+    
+    <div class="details">
+      <div class="detail-row">
+        <div class="detail-label">License Holder:</div>
+        <div class="detail-value" id="name">Merlin the Princess</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Friend ID:</div>
+        <div class="detail-value" id="id">#18-M-R_LIN</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Issued On:</div>
+        <div class="detail-value" id="date">Today</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Expires:</div>
+        <div class="detail-value" id="expiry">Never</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Special Powers:</div>
+        <div class="detail-value" id="powers">
+          - Turning ordinary days into adventures<br>
+          - Master of contagious laughter<br>
+          - Professional heart-warmer
+        </div>
+      </div>
+    </div>
+    
+    <div class="signature">
+      <div class="signature-box">
+        <div style="border-top: 1px solid #333; width: 80%; margin-bottom: 5px;"></div>
+        <div>Certified Andy</div>
+      </div>
+      <div class="signature-box">
+        <div style="border-top: 1px solid #333; width: 80%; margin-bottom: 5px;"></div>
+        <div>Date</div>
+      </div>
+    </div>
+    
+    <img class="stamp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23ff69b4' stroke-width='3'/><text x='50' y='50' font-size='14' fill='%23ff69b4' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>OFFICIAL</text></svg>" alt="Stamp">
   </div>
 
-  <!-- === JavaScript === -->
   <script>
-    // Custom message with line breaks
-    const message = "Merlin, I just want to say thank you—for being you.\\n\\nYour presence, your words, your energy—it's all a gift.\\n\\nI truly appreciate everything you are and all the energy that you contribute to this friendship.\\n\\nYou're amazing, and I'm grateful knowing you. 🙂";
-    const typedText = document.getElementById('typed-text');
-    let i = 0;
-
-    function typeWriter() {
-      if (i < message.length) {
-        if (message.charAt(i) === '\\' && message.charAt(i+1) === 'n') {
-          typedText.innerHTML += '<br><br>';
-          i += 2;
-        } else {
-          typedText.innerHTML += message.charAt(i);
-          i++;
-        }
-        setTimeout(typeWriter, 30); // Faster typing speed
-      }
-    }
-
-    // Heart interaction
-    const heart = document.getElementById('heart');
-    heart.addEventListener('click', () => {
-      heart.style.transform = 'scale(1.5)';
-      heart.style.filter = 'drop-shadow(0 0 15px #ff69b4)';
-      setTimeout(() => { 
-        heart.style.transform = 'scale(1)'; 
-        heart.style.filter = 'none';
-      }, 300);
-      createMagic();
+    // Set today's date
+    document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
     });
-
-    // Create magical sparkles
-    function createMagic() {
-      for (let i = 0; i < 15; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('particle');
-        sparkle.style.width = Math.random() * 30 + 10 + 'px';
-        sparkle.style.height = sparkle.style.width;
-        sparkle.style.left = Math.random() * window.innerWidth + 'px';
-        sparkle.style.top = Math.random() * window.innerHeight + 'px';
-        sparkle.style.opacity = Math.random() * 0.7 + 0.3;
-        sparkle.style.animation = `float ${Math.random() * 4 + 2}s ease-in-out forwards`;
-        
-        // Random rotation and movement
-        sparkle.style.transform = `rotate(${Math.random() * 360}deg)`;
-        sparkle.style.setProperty('--move-x', (Math.random() - 0.5) * 200 + 'px');
-        sparkle.style.setProperty('--move-y', (Math.random() - 0.5) * 200 + 'px');
-        
-        document.getElementById('particles').appendChild(sparkle);
-        
-        // Remove after animation
-        setTimeout(() => { sparkle.remove(); }, 3000);
-      }
-    }
-
-    // Floating particles (stars)
-    const particles = document.getElementById('particles');
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.width = Math.random() * 20 + 5 + 'px';
-      particle.style.height = particle.style.width;
-      particle.style.left = Math.random() * window.innerWidth + 'px';
-      particle.style.top = Math.random() * window.innerHeight + 'px';
-      particle.style.opacity = Math.random() * 0.5 + 0.1;
-      particle.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
-      particle.style.animationDelay = Math.random() * 5 + 's';
-      particles.appendChild(particle);
-    }
-
-    // Add keyframe animation for particles
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes float {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-          opacity: 0.8;
-        }
-        100% {
-          transform: translate(var(--move-x, 0), var(--move-y, 100px)) rotate(360deg);
-          opacity: 0;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Start typing after a brief delay
-    setTimeout(typeWriter, 800);
   </script>
 </body>
 </html>
