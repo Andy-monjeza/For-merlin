@@ -1,42 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="file.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>for Merlin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Merlin ✨</title>
+  <style>
+    /* === CSS === */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #5a3d7a;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      z-index: 10;
+      max-width: 600px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #typed-text {
+      font-size: 1.5em;
+      min-height: 200px;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .heart {
+      font-size: 3em;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .heart:hover {
+      transform: scale(1.2);
+      animation: none;
+    }
+
+    .heart:active {
+      transform: scale(1.5);
+    }
+
+    /* Floating magic sparkles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/></svg>') no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    .click-instruction {
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    
-        <img class="the-image" src="merlin-prof.jpg" alt="">
-    
-    <div class="whole-container">
-         <input class=" name" placeholder="Name">
-         <input class="password A-p" type="password"  placeholder="Password">
-         <button class="enter">
-             Enter 
-         </button>
-         <p class="error">
-             
-         </p>
+  <!-- === HTML === -->
+  <div class="particles" id="particles"></div>
+  <div class="container">
+    <h1>For Merlin ✨</h1>
+    <div id="typed-text"></div>
+    <div class="heart" id="heart">🤍</div>
+    <p class="click-instruction">(Click Me)</p>
+  </div>
+
+  <!-- === JavaScript === -->
+  <script>
+    // Custom message with line breaks
+    const message = "Merlin, I just want to say thank you—for being you.\\n\\nYour presence, your words, your energy—it's all a gift.\\n\\nI truly appreciate everything you are and all the energy that you contribute to this friendship.\\n\\nYou're amazing, and I'm grateful knowing you. 🙂";
+    const typedText = document.getElementById('typed-text');
+    let i = 0;
+
+    function typeWriter() {
+      if (i < message.length) {
+        if (message.charAt(i) === '\\' && message.charAt(i+1) === 'n') {
+          typedText.innerHTML += '<br><br>';
+          i += 2;
+        } else {
+          typedText.innerHTML += message.charAt(i);
+          i++;
+        }
+        setTimeout(typeWriter, 30); // Faster typing speed
+      }
+    }
+
+    // Heart interaction
+    const heart = document.getElementById('heart');
+    heart.addEventListener('click', () => {
+      heart.style.transform = 'scale(1.5)';
+      heart.style.filter = 'drop-shadow(0 0 15px #ff69b4)';
+      setTimeout(() => { 
+        heart.style.transform = 'scale(1)'; 
+        heart.style.filter = 'none';
+      }, 300);
+      createMagic();
+    });
+
+    // Create magical sparkles
+    function createMagic() {
+      for (let i = 0; i < 15; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('particle');
+        sparkle.style.width = Math.random() * 30 + 10 + 'px';
+        sparkle.style.height = sparkle.style.width;
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        sparkle.style.opacity = Math.random() * 0.7 + 0.3;
+        sparkle.style.animation = `float ${Math.random() * 4 + 2}s ease-in-out forwards`;
         
-    </div>   
-    
-    <div class="contents"></div>
-    
-       <div class="inside-container">
-        <h1 class="header">
-            Wow 🙂you actually got it 
-        </h1>
+        // Random rotation and movement
+        sparkle.style.transform = `rotate(${Math.random() * 360}deg)`;
+        sparkle.style.setProperty('--move-x', (Math.random() - 0.5) * 200 + 'px');
+        sparkle.style.setProperty('--move-y', (Math.random() - 0.5) * 200 + 'px');
         
-        <p class="her-message">
-            The whole point of the password was jus to mess around 😂, there was not much special to actually see behind rather just appreciation.
-            <br><br>
-  i know ive told you i appreciate you multiple times but every time it feels just right to say it, if i had to appreciate you so many times for you to actually get the degree of appreciation i actually appreciate you at, i would. your an amazing person and i look forward fo seeing how this friendship progresses🙂
-        </p>
-    </div>
-    <script src="file.js"></script>
-    
-    
+        document.getElementById('particles').appendChild(sparkle);
+        
+        // Remove after animation
+        setTimeout(() => { sparkle.remove(); }, 3000);
+      }
+    }
+
+    // Floating particles (stars)
+    const particles = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.width = Math.random() * 20 + 5 + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.left = Math.random() * window.innerWidth + 'px';
+      particle.style.top = Math.random() * window.innerHeight + 'px';
+      particle.style.opacity = Math.random() * 0.5 + 0.1;
+      particle.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particles.appendChild(particle);
+    }
+
+    // Add keyframe animation for particles
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translate(var(--move-x, 0), var(--move-y, 100px)) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Start typing after a brief delay
+    setTimeout(typeWriter, 800);
+  </script>
 </body>
 </html>
